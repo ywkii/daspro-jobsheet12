@@ -1,30 +1,17 @@
-import java.util.Scanner;
-
 public class HitungBalok29 {
     static int hitungLuas(int pjg, int lb){
-        int Luas = pjg * lb;
-        return Luas;
+        return pjg * lb;
     }
     static int hitungVolume(int tinggi, int a, int b){
-        int volume = hitungLuas(a, b) * tinggi;
-        return volume;
+        return hitungLuas(a, b) * tinggi;
     }
-    public static void main(String[] args){
-        Scanner input = new Scanner(System.in);
-        int p, l, t, L, vol;
+    static int hitungLuasPermukaanBalok(int p, int l, int t){
+        return 2 * (hitungLuas(p,l) + hitungLuas(p, t) + hitungLuas(l, t));
+    }
+    public static void main(String[] args) {
+        int p = 4, l = 3, t = 5;
 
-        System.out.println("Masukkan panjang");
-        p = input.nextInt();
-        System.out.println("Masukkan lebar");
-        l = input.nextInt();
-        System.out.println("Masukkan tinggi");
-        t = input.nextInt();
-
-        L = hitungLuas(p, l);
-        System.out.println("Luas persegi panjang adalah " + L);
-        vol = hitungVolume(t, p, l);
-        System.out.println("Volume balok adalah " + vol);
-
-        input.close();
+        System.out.println("Urutan benar hitungVolume(t, p, l): " + hitungVolume(t, p, l));
+        System.out.println("Urutan tertukar hitungVolume(p, l, t): " + hitungVolume(p, l, t));
     }
 }
